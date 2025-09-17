@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringBasico -Listagem de Clientes</title>
+    <!-- Pico Css Style -->
+     <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css"
+>
+</head>
+<body>
+    <nav class="container-fluid">
+        <ul>
+            <li>
+                <strong> SpringBasico - Projeto </strong>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#">Clientes</a>
+            </li>
+        </ul>
+    </nav>
+    <main class="container">
+        <h1>Listagem de Clientes</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                     <th scope="col">E-mail</th>
+                      <th scope="col">Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="client : ${clients}">
+                    <th scope="row" th:text="${client.id}">1</th>
+                    <td  th:text="${client.name}">Daniel X</td>
+                    <td  th:text="${client.email}">daniel@gmail.com</td>
+                    <td th:text="${client.phone}">(13) 99322-2341</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="#" role="button">Novo Cliente</a>
+    </main>
+</body>
+</html>
