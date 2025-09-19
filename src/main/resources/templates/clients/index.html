@@ -1,30 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpringBasico -Listagem de Clientes</title>
-    <!-- Pico Css Style -->
-     <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css"
->
-</head>
-<body>
-    <nav class="container-fluid">
-        <ul>
-            <li>
-                <strong> SpringBasico - Projeto </strong>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="#">Clientes</a>
-            </li>
-        </ul>
-    </nav>
-    <main class="container">
-        <h1>Listagem de Clientes</h1>
+<html th:replace="~{layout :: layout (~{::title},~{::content})}">
+<th:block th:fragment="title">Listagem de Clientes</th:block>
+
+<th:block th:fragment="content">
+     <h1>Listagem de Clientes</h1>
         <table>
             <thead>
                 <tr>
@@ -32,6 +10,7 @@
                     <th scope="col">Nome</th>
                      <th scope="col">E-mail</th>
                       <th scope="col">Telefone</th>
+                      <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,10 +19,13 @@
                     <td  th:text="${client.name}">Daniel X</td>
                     <td  th:text="${client.email}">daniel@gmail.com</td>
                     <td th:text="${client.phone}">(13) 99322-2341</td>
+                    <td>
+                    <a th:href="@{/clients/edit/{id} (id=${client.id})}">Editar</a>   
+                     <a th:href="@{/clients/delete/{id} (id=${client.id})}" onclick="return confirm('Tem certeza que deseja excluir um cliente?')">Excluir</a>    
+                    </td>
                 </tr>
             </tbody>
         </table>
-        <a href="#" role="button">Novo Cliente</a>
-    </main>
-</body>
+        <a th:href="@{/clients/create}" role="button">Novo Cliente</a>
+</th:block>
 </html>

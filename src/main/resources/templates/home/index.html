@@ -1,33 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpringBasico - Home</title>
-    <!-- Pico Css Style -->
-     <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.5.10/css/pico.min.css"
->
-</head>
-<body>
-    <nav class="container-fluid">
-        <ul>
-            <li>
-                <strong> SpringBasico - Projeto </strong>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <a href="#">Clientes</a>
-            </li>
-        </ul>
-    </nav>
-    <main class="container">
-        <h1>Boas Vindas</h1>
+<html th:replace="~{layout :: layout (~{::title},~{::content})}">
+<th:block th:fragment="title">Home</th:block>
+
+<th:block th:fragment="content">
+     <h1>Boas Vindas</h1>
         <p>
             Projeto Basico Spring
         </p>
-    </main>
-</body>
+        <div th:replace="~{/fragments/_card :: card ('Boas Vindas','Bem Vindo  ')}"></div>
+</th:block>
 </html>

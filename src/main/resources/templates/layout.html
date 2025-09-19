@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br" th:fragment="layout (title, content)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringBasico - Home <th:block th:replace="${title}"></th:block></title>
+    <!-- Pico Css Style -->
+     <link
+  rel="stylesheet"
+  th:href="@{/css/pico.min.css}">
+</head>
+<body>
+   <div th:replace="~{/fragments/_navbar :: navbar}">
+    </div>
+    <main class="container" th:insert="${content}">
+
+    </main>
+</body>
+</html>

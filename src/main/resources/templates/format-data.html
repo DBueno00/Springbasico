@@ -1,0 +1,8 @@
+<h1>Formatação Dados</h1>
+<p th:text="${#locale}"></p>
+<p th:text="${locale}"></p>
+<p th:text="${#temporals.format(date, 'SHORT')}"></p>
+<p th:text="${#temporals.format(datetime, locale)}"></p>
+<p th:text="${#numbers.formatCurrency(currency)}"></p>
+<p th:text="${#numbers.formatDecimal(currency , 3 , 'COMMA', 2 ,'POINT')}"></p>
+<p th:text="${#numbers.formatPercent(percent, 1 , 2)}"></p>
